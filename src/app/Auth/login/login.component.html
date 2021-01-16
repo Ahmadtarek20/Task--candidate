@@ -1,0 +1,34 @@
+
+<div class="wrapper fadeInDown container">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <img src="\assets\images\user.jpg" id="icon"  class="rounded-circle" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm">
+      <div class="form-group">
+          <input type="text" formControlName="usr"  class="fadeIn second"  placeholder="Email">
+          <div  *ngIf="loginForm.get('usr')?.errors?.required && isSubmitted" class="text-error size-small mt-2 validator">
+           Email is required
+          </div>
+          <div  *ngIf="loginForm.get('usr')?.errors?.pattern && isSubmitted" class="text-error size-small mt-2 validator">
+            Invalid Email Format
+          </div>
+      </div>
+      <span></span>
+      <input type="password" formControlName="pwd"  class="fadeIn third"  placeholder="Password">
+      <div  class="login_error"  *ngIf="loginForm.get('pwd')?.errors?.required && isSubmitted" class="text-error size-small mt-2 validator">
+        Password is required
+       </div>
+       <div  class="login_error"  *ngIf="loginForm.get('pwd')?.errors?.minlength && isSubmitted" class="text-error size-small mt-2 validator">
+        Password min Length is 6
+       </div>
+
+      <input type="submit" class="pointer" (click)="onSubmit()" class="fadeIn fourth" value="Log In">
+    </form>
+
+
+  </div>
+</div>
