@@ -51,8 +51,8 @@ export class ProfileComponent implements OnInit {
          const currentDate = new Date();
          const year = currentDate.getFullYear();
          if(this.userData.birth_date){
-          const bb =  (year - new Date(this.userData?.birth_date).getFullYear())
-          this.profileForm.get('age')?.setValue(bb)
+          const age =  (year - new Date(this.userData?.birth_date).getFullYear())
+          this.profileForm.get('age')?.setValue(age)
          }
       })
     }
